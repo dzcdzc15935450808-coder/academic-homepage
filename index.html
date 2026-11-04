@@ -1,96 +1,187 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>董哲诚 — 个人学术主页</title>
-<meta name="description" content="Personal academic homepage of Zhecheng Dong (董哲诚), Ph.D. student in Art History at the University of Barcelona." />
-<link rel="stylesheet" href="styles.css" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2317140f'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23f6f1e8' font-family='Georgia'>D</text></svg>" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>董哲诚，艺术史博士研究生，巴塞罗那大学</title>
+<meta name="description" content="董哲诚，巴塞罗那大学艺术史系博士研究生（CSC）。研究中国与西班牙的转型期电影（1975–2015），以及电影如何保存被拆除的城市记忆。">
+<link rel="canonical" href="https://dongzhecheng.com/">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="董哲诚 · Zhecheng Dong">
+<meta property="og:title" content="董哲诚，艺术史博士研究生，巴塞罗那大学">
+<meta property="og:description" content="研究中国与西班牙的转型期电影（1975–2015），以及电影如何保存被拆除的城市记忆。">
+<meta property="og:url" content="https://dongzhecheng.com/">
+<meta property="og:image" content="https://dongzhecheng.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#2a1110">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23952625'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23e2dccf' font-family='Songti SC, serif'%3E%E8%91%A3%3C/text%3E%3C/svg%3E">
+
+<link rel="preload" as="font" type="font/woff2" href="fonts/schibsted-grotesk-latin.woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Zhecheng Dong",
+  "alternateName": "董哲诚",
+  "jobTitle": "PhD student in Art History",
+  "description": "Doctoral research on Chinese and Spanish transitional cinema (1975–2015) and embodied urban memory.",
+  "url": "https://dongzhecheng.com/",
+  "image": "https://dongzhecheng.com/og.jpg",
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Barcelona",
+    "department": "Department of Art History"
+  },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Pompeu Fabra University" },
+    { "@type": "CollegeOrUniversity", "name": "Shanxi Media College" }
+  ],
+  "sameAs": [
+    "https://orcid.org/0009-0009-3887-580X",
+    "https://www.linkedin.com/in/zhecheng-dong-862390364",
+    "https://kinoscholar.com"
+  ]
+}
+</script>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="topbar-inner">
-    <a class="brand" href="#top" id="brand-name">Zhecheng Dong</a>
-    <nav class="nav" id="nav">
-      <a href="#about"></a>
-      <a href="#research"></a>
-      <a href="#news"></a>
-      <a href="#projects"></a>
-      <a href="#awards"></a>
-      <a href="#contact"></a>
-    </nav>
-    <div class="lang-switch" id="lang-switch"></div>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">◐</button>
+<a class="skip" href="#main" id="skip-link">跳到正文</a>
+
+<section class="hero" id="top">
+  <header class="top">
+    <div class="wrap top__row">
+      <a class="mark" href="#top" id="mark">董哲诚</a>
+      <nav class="nav" id="nav" aria-label="页面"></nav>
+      <div class="lang" id="lang" role="group" aria-label="语言"></div>
+    </div>
+  </header>
+
+  <div class="wrap hero__grid">
+    <h1 class="hero__title" id="hero-title">
+      <span class="line"><span class="line__in" id="hero-line-1"></span></span>
+      <span class="line"><span class="line__in" id="hero-line-2"></span></span>
+    </h1>
+    <div class="hero__intro">
+      <p class="hero__lede" id="hero-lede"></p>
+      <a class="btn" id="hero-action" href="#contact"></a>
+    </div>
+    <ul class="facts" id="hero-facts"></ul>
   </div>
-</header>
+</section>
 
-<div class="layout" id="top">
+<main id="main">
 
-  <!-- ===== Sidebar: the program-note colophon ===== -->
-  <aside class="sidebar">
-    <figure class="film-still">
-      <div class="still-frame"><img id="photo" src="photo.jpg" alt="Portrait of Zhecheng Dong" /></div>
-      <figcaption id="photo-caption"></figcaption>
-    </figure>
+  <section class="section about" aria-labelledby="about-statement">
+    <div class="wrap axis">
+      <div class="axis__side notes" id="about-notes"></div>
+      <div class="axis__main">
+        <p class="statement" id="about-statement"></p>
+        <p class="body" id="about-body"></p>
+      </div>
+    </div>
+  </section>
 
-    <h1 class="name" id="name"></h1>
-    <p class="role" id="role"></p>
-    <p class="affiliation" id="affiliation"></p>
+  <section class="section research" id="research" aria-labelledby="research-heading">
+    <div class="wrap">
+      <div class="axis">
+        <div class="axis__side notes" id="research-notes"></div>
+        <div class="axis__main">
+          <h2 class="h2" id="research-heading"></h2>
+          <p class="research__name" id="research-name"></p>
+          <p class="body" id="research-method"></p>
+        </div>
+      </div>
+    </div>
 
-    <div class="emails" id="emails"></div>
-    <div class="links" id="links"></div>
-    <div class="interests" id="interests"></div>
-  </aside>
+      <div class="band band--red diptych">
+        <div class="wrap">
+          <h3 class="diptych__head" id="diptych-head"></h3>
+          <div class="diptych__pair">
+            <article class="city">
+              <p class="year latin" id="madrid-year"></p>
+              <p class="city__name" id="madrid-city"></p>
+              <p class="city__text" id="madrid-text"></p>
+              <p class="city__films" id="madrid-films"></p>
+            </article>
+            <article class="city">
+              <p class="year latin" id="beijing-year"></p>
+              <p class="city__name" id="beijing-city"></p>
+              <p class="city__text" id="beijing-text"></p>
+              <p class="city__films" id="beijing-films"></p>
+            </article>
+          </div>
+          <p class="diptych__q" id="diptych-question"></p>
+        </div>
+      </div>
 
-  <!-- ===== Main ===== -->
-  <main class="main">
+    <div class="wrap">
+      <p class="field-note" id="research-field"></p>
+      <div class="plates" id="plates"></div>
+    </div>
+  </section>
 
-    <section class="section" id="about">
-      <h2 class="section-title" id="title-about"></h2>
-      <div id="bio"></div>
-    </section>
+  <section class="section news" id="news" aria-labelledby="news-heading">
+    <div class="wrap">
+      <div class="axis">
+        <div class="axis__side"></div>
+        <div class="axis__main">
+          <h2 class="h2" id="news-heading"></h2>
+          <div class="news__list" id="news-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="section" id="research">
-      <h2 class="section-title" id="title-research"></h2>
-      <div class="research-block" id="research-block"></div>
-    </section>
+  <section class="section work" id="work" aria-labelledby="work-heading">
+    <div class="wrap work__grid">
+      <figure class="work__shot">
+        <img id="work-img" src="" alt="" width="1200" height="694" loading="lazy" decoding="async">
+      </figure>
+      <div class="work__text">
+        <h2 class="h2" id="work-heading"></h2>
+        <p class="body" id="work-desc"></p>
+        <a class="link" id="work-link" href="https://kinoscholar.com" target="_blank" rel="noopener"></a>
+        <p class="caption" id="work-caption"></p>
+      </div>
+    </div>
+  </section>
 
-    <section class="section" id="news">
-      <h2 class="section-title" id="title-news"></h2>
-      <ul class="news-list" id="news-list"></ul>
-    </section>
+  <section class="band band--red contact" id="contact" aria-labelledby="contact-statement">
+    <div class="wrap contact__grid">
+      <p class="statement statement--onred" id="contact-statement"></p>
+      <div class="contact__links" id="contact-links"></div>
+      <p class="contact__meta" id="contact-meta"></p>
+    </div>
+  </section>
 
-    <section class="section" id="publications">
-      <h2 class="section-title" id="title-publications"></h2>
-      <p class="section-sub" id="pub-note"></p>
-      <div id="pub-list"></div>
-    </section>
+</main>
 
-    <section class="section" id="projects">
-      <h2 class="section-title" id="title-projects"></h2>
-      <div id="project-list"></div>
-    </section>
+<footer class="colophon">
+  <div class="wrap colophon__grid">
+    <p id="colophon-credits"></p>
+    <p id="colophon-type"></p>
+    <p id="colophon-updated"></p>
+  </div>
+</footer>
 
-    <section class="section" id="awards">
-      <h2 class="section-title" id="title-awards"></h2>
-      <ul class="simple-list" id="award-list"></ul>
-    </section>
-
-    <section class="section" id="teaching">
-      <h2 class="section-title" id="title-teaching"></h2>
-      <ul class="simple-list" id="teaching-list"></ul>
-    </section>
-
-    <section class="section" id="contact">
-      <h2 class="section-title" id="title-contact"></h2>
-      <div id="contact-block"></div>
-    </section>
-
-    <footer class="footer" id="footer"></footer>
-  </main>
-</div>
+<noscript>
+  <div class="wrap noscript">
+    <h2>董哲诚 · Zhecheng Dong</h2>
+    <p>巴塞罗那大学艺术史系博士研究生（CSC）。研究中国与西班牙的转型期电影，1975–2015。</p>
+    <p>PhD student in Art History, University of Barcelona. Chinese and Spanish transitional cinema, 1975–2015.</p>
+    <p><a href="mailto:zhdongdo81@doct.ub.edu">zhdongdo81@doct.ub.edu</a> · <a href="https://orcid.org/0009-0009-3887-580X">ORCID</a></p>
+  </div>
+</noscript>
 
 <script src="data.js"></script>
 <script src="app.js"></script>

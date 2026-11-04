@@ -1,0 +1,72 @@
+[
+ {
+  "file": "assets/gran-via-01.jpg",
+  "media": "image",
+  "ref": "commons:35162663",
+  "title": "Gran Vía - 01",
+  "creator": "Carlos Delgado",
+  "creatorUrl": null,
+  "date": "2014-05-23",
+  "license": "CC BY-SA 4.0",
+  "licenseCode": "by-sa",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "creditRequired": true,
+  "page": "https://commons.wikimedia.org/wiki/File:Gran_V%C3%ADa_-_01.jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Gran_V%C3%ADa_-_01.jpg/1920px-Gran_V%C3%ADa_-_01.jpg",
+  "width": 1920,
+  "height": 2880,
+  "bytes": 1352443,
+  "credit": "\"Gran Vía - 01\" by Carlos Delgado, CC BY-SA 4.0, via Wikimedia Commons",
+  "notes": [
+   "Share-alike: an altered version (recoloured, combined with other pictures) must be shared under the same licence."
+  ],
+  "saved": "2026-11-04T21:08:24.001Z"
+ },
+ {
+  "file": "assets/aerial-view-of-barcelona-spain-51227309370-edited.jpg",
+  "media": "image",
+  "ref": "commons:165992961",
+  "title": "Aerial view of Barcelona, Spain (51227309370) edited",
+  "creator": "dronepicr",
+  "creatorUrl": null,
+  "date": "2021-05-24",
+  "license": "CC BY 2.0",
+  "licenseCode": "by",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "creditRequired": true,
+  "page": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Barcelona,_Spain_(51227309370)_edited.jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Aerial_view_of_Barcelona%2C_Spain_%2851227309370%29_edited.jpg/1920px-Aerial_view_of_Barcelona%2C_Spain_%2851227309370%29_edited.jpg",
+  "width": 1920,
+  "height": 839,
+  "bytes": 699004,
+  "credit": "\"Aerial view of Barcelona, Spain (51227309370) edited\" by dronepicr, CC BY 2.0, via Wikimedia Commons",
+  "notes": [],
+  "saved": "2026-11-04T21:08:24.346Z"
+ },
+ {
+  "file": "assets/skyline-of-beijing-cbd-from-the-southeast.jpg",
+  "media": "image",
+  "ref": "commons:109791131",
+  "title": "Skyline of Beijing CBD from the southeast (20210907094201)",
+  "creator": "N509FZ",
+  "creatorUrl": null,
+  "date": "2021-09-07",
+  "license": "CC BY-SA 4.0",
+  "licenseCode": "by-sa",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "creditRequired": true,
+  "page": "https://commons.wikimedia.org/wiki/File:Skyline_of_Beijing_CBD_from_the_southeast_(20210907094201).jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Skyline_of_Beijing_CBD_from_the_southeast_%2820210907094201%29.jpg/1920px-Skyline_of_Beijing_CBD_from_the_southeast_%2820210907094201%29.jpg",
+  "width": 1920,
+  "height": 1280,
+  "bytes": 1095172,
+  "credit": "\"Skyline of Beijing CBD from the southeast (20210907094201)\" by N509FZ, CC BY-SA 4.0, via Wikimedia Commons",
+  "notes": [
+   "Share-alike: an altered version (recoloured, combined with other pictures) must be shared under the same licence."
+  ],
+  "saved": "2026-11-04T21:08:24.656Z"
+ }
+]
