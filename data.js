@@ -241,9 +241,9 @@ const CONTACT = {
 /* ---------- Colophon ---------- */
 const COLOPHON = {
   credits: {
-    zh: "图片：马德里，格兰大道，Carlos Delgado 摄，CC BY-SA 4.0；巴塞罗那，dronepicr 摄，CC BY 2.0。两张照片均作灰度处理，版权归原作者。Kinoscholar 界面为作者截图，肖像由本人提供。",
-    en: "Images: Madrid, Gran Vía, photograph by Carlos Delgado, CC BY-SA 4.0; Barcelona, photograph by dronepicr, CC BY 2.0. Both images are shown in greyscale; rights remain with their authors. The Kinoscholar interface is the author's own screenshot; the portrait is supplied by the author.",
-    es: "Imágenes: Madrid, Gran Vía, fotografía de Carlos Delgado, CC BY-SA 4.0; Barcelona, fotografía de dronepicr, CC BY 2.0. Ambas se muestran en escala de grises; los derechos son de sus autores. La interfaz de Kinoscholar es una captura del autor; el retrato lo aporta el propio autor.",
+    zh: "图片：马德里，格兰大道，Carlos Delgado 摄，CC BY-SA 4.0；巴塞罗那，dronepicr 摄，CC BY 2.0。版权归原作者。Kinoscholar 界面为作者截图，肖像由本人提供。",
+    en: "Images: Madrid, Gran Vía, photograph by Carlos Delgado, CC BY-SA 4.0; Barcelona, photograph by dronepicr, CC BY 2.0. Rights remain with their authors. The Kinoscholar interface is the author's own screenshot; the portrait is supplied by the author.",
+    es: "Imágenes: Madrid, Gran Vía, fotografía de Carlos Delgado, CC BY-SA 4.0; Barcelona, fotografía de dronepicr, CC BY 2.0. Los derechos son de sus autores. La interfaz de Kinoscholar es una captura del autor; el retrato lo aporta el propio autor.",
   },
   type: {
     zh: "字体：拉丁字母为 Schibsted Grotesk（SIL OFL），中文标题用宋体，正文用苹方。",

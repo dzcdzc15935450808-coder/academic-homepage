@@ -50,7 +50,7 @@ grid; the red page is the only full-bleed colour field inside the body.
 
 ## Pictures
 
-Four, all documentary: the portrait (drop cap), Madrid and Barcelona (fieldwork plates, grayscale,
+Four, all documentary: the portrait (drop cap), Madrid and Barcelona (fieldwork plates, colour,
 credited under the caption), and the Kinoscholar interface (the product's own screenshot, in
 colour — the one screen on a printed page). No stock skies, no decorative images.
 

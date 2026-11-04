@@ -58,8 +58,8 @@ Node，部署后 500）。那个项目应删除，避免每次推送双构建和
 
 ## 图片版权
 
-- 马德里，格兰大道：Carlos Delgado，CC BY-SA 4.0，Wikimedia Commons（灰度处理）。
-- 巴塞罗那：dronepicr，CC BY 2.0，Wikimedia Commons（灰度处理）。
+- 马德里，格兰大道：Carlos Delgado，CC BY-SA 4.0，Wikimedia Commons。
+- 巴塞罗那：dronepicr，CC BY 2.0，Wikimedia Commons。
 - Kinoscholar 界面：作者本人截图。
 - 肖像：作者本人提供。
 

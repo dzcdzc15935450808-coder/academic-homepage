@@ -281,7 +281,6 @@ html[lang="zh"] .statement { letter-spacing: 0; line-height: 1.45; }
   object-fit: cover;
   object-position: 50% 28%;
   margin: 0.16em 0.8em 0.1em 0;
-  filter: grayscale(1);
 }
 
 .body {
