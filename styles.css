@@ -1,0 +1,208 @@
+/* ============================================================
+   Academic Homepage — styles
+   Palette: paper / ink / crimson accent. Serif display, sans body.
+   ============================================================ */
+
+:root {
+  --bg: #fafaf7;
+  --bg-elev: #ffffff;
+  --ink: #1c1c1c;
+  --ink-soft: #555550;
+  --ink-faint: #8a8a84;
+  --line: #e4e2da;
+  --accent: #8c1d18;
+  --accent-soft: rgba(140, 29, 24, 0.08);
+  --badge-bg: #f0efe8;
+  --shadow: 0 1px 2px rgba(0,0,0,0.04);
+  --radius: 10px;
+  --maxw: 1080px;
+}
+
+[data-theme="dark"] {
+  --bg: #161614;
+  --bg-elev: #1e1e1b;
+  --ink: #e8e6df;
+  --ink-soft: #b5b3aa;
+  --ink-faint: #83817a;
+  --line: #33332e;
+  --accent: #d0675f;
+  --accent-soft: rgba(208, 103, 95, 0.12);
+  --badge-bg: #2a2a26;
+  --shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, "Helvetica Neue", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Top bar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar-inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 0 24px;
+  height: 56px; display: flex; align-items: center; gap: 24px;
+}
+.brand {
+  font-family: Georgia, "Times New Roman", "Songti SC", serif;
+  font-weight: 700; font-size: 18px; color: var(--ink);
+  text-decoration: none; white-space: nowrap;
+}
+.nav { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+.nav a {
+  color: var(--ink-soft); text-decoration: none; font-size: 14px;
+  padding: 6px 10px; border-radius: 6px;
+}
+.nav a:hover { color: var(--accent); background: var(--accent-soft); }
+.theme-toggle {
+  margin-left: 8px; border: 1px solid var(--line); background: var(--bg-elev);
+  color: var(--ink-soft); width: 34px; height: 34px; border-radius: 50%;
+  cursor: pointer; font-size: 15px; line-height: 1;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ---------- Layout ---------- */
+.layout {
+  max-width: var(--maxw); margin: 0 auto; padding: 40px 24px 80px;
+  display: grid; grid-template-columns: 280px 1fr; gap: 56px;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar { position: sticky; top: 88px; align-self: start; }
+.avatar {
+  width: 160px; height: 160px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: Georgia, serif; font-size: 52px; font-weight: 700;
+  color: #fff; background: linear-gradient(135deg, #8c1d18, #4a2c6d);
+  letter-spacing: 1px; margin-bottom: 18px;
+}
+.name {
+  font-family: Georgia, "Times New Roman", "Songti SC", serif;
+  font-size: 26px; line-height: 1.2; margin-bottom: 6px;
+}
+.role { color: var(--ink-soft); font-size: 15px; }
+.affiliation { color: var(--ink-faint); font-size: 14px; margin-top: 2px; }
+.email { font-size: 14px; margin-top: 10px; }
+.email a { color: var(--accent); text-decoration: none; }
+.email a:hover { text-decoration: underline; }
+
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.links a {
+  font-size: 13px; color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 4px 12px; background: var(--bg-elev);
+}
+.links a:hover { color: var(--accent); border-color: var(--accent); }
+
+.interests { margin-top: 22px; }
+.interests h3 {
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--ink-faint); margin-bottom: 8px; font-weight: 600;
+}
+.interests .tag {
+  display: inline-block; font-size: 13px; color: var(--ink-soft);
+  background: var(--badge-bg); border-radius: 6px;
+  padding: 3px 9px; margin: 0 6px 6px 0;
+}
+
+/* ---------- Sections ---------- */
+.section { margin-bottom: 56px; }
+.section-title {
+  font-family: Georgia, "Times New Roman", "Songti SC", serif;
+  font-size: 22px; margin-bottom: 16px; padding-bottom: 8px;
+  border-bottom: 2px solid var(--line);
+}
+.section-title::before { content: "§ "; color: var(--accent); }
+.section-sub { color: var(--ink-faint); font-size: 14px; margin: -6px 0 14px; }
+#bio p { margin-bottom: 12px; max-width: 720px; }
+#bio a { color: var(--accent); text-decoration: none; }
+#bio a:hover { text-decoration: underline; }
+
+/* ---------- News ---------- */
+.news-list { list-style: none; }
+.news-list li {
+  display: grid; grid-template-columns: 110px 1fr; gap: 14px;
+  padding: 8px 0; font-size: 15px; border-bottom: 1px dashed var(--line);
+}
+.news-list li:last-child { border-bottom: none; }
+.news-date { color: var(--ink-faint); font-variant-numeric: tabular-nums; font-size: 14px; padding-top: 1px; }
+
+/* ---------- Publications ---------- */
+.pub-year {
+  font-family: Georgia, serif; font-size: 17px; font-weight: 700;
+  color: var(--accent); margin: 22px 0 10px;
+}
+.pub {
+  padding: 12px 14px; border-radius: var(--radius); margin-bottom: 6px;
+}
+.pub:hover { background: var(--bg-elev); box-shadow: var(--shadow); }
+.pub-title { font-size: 16px; font-weight: 600; }
+.pub-title a { color: var(--ink); text-decoration: none; }
+.pub-title a:hover { color: var(--accent); }
+.pub-authors { font-size: 14px; color: var(--ink-soft); margin-top: 3px; }
+.pub-authors .me { color: var(--accent); font-weight: 600; }
+.pub-venue { font-size: 14px; font-style: italic; color: var(--ink-faint); margin-top: 2px; }
+.pub-badges { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+.badge {
+  font-size: 12px; text-decoration: none; padding: 2px 10px;
+  border-radius: 999px; border: 1px solid var(--line);
+  color: var(--ink-soft); background: var(--bg);
+}
+.badge:hover { color: var(--accent); border-color: var(--accent); }
+.badge.hl { background: var(--accent-soft); color: var(--accent); border-color: transparent; font-weight: 600; }
+
+/* ---------- Projects ---------- */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.card {
+  background: var(--bg-elev); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 18px 20px;
+}
+.card:hover { border-color: var(--accent); }
+.card h3 { font-size: 16px; margin-bottom: 6px; }
+.card h3 a { color: var(--ink); text-decoration: none; }
+.card h3 a:hover { color: var(--accent); }
+.card p { font-size: 14px; color: var(--ink-soft); }
+.card .card-links { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
+
+/* ---------- Simple lists ---------- */
+.simple-list { list-style: none; }
+.simple-list li {
+  padding: 8px 0 8px 20px; position: relative; font-size: 15px;
+  border-bottom: 1px dashed var(--line);
+}
+.simple-list li:last-child { border-bottom: none; }
+.simple-list li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+.simple-list .when { color: var(--ink-faint); font-size: 13.5px; margin-right: 8px; }
+
+/* ---------- Contact ---------- */
+#contact-block p { margin-bottom: 8px; color: var(--ink-soft); }
+#contact-block a { color: var(--accent); text-decoration: none; }
+#contact-block a:hover { text-decoration: underline; }
+
+/* ---------- Footer ---------- */
+.footer {
+  border-top: 1px solid var(--line); padding-top: 20px;
+  color: var(--ink-faint); font-size: 13px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .layout { grid-template-columns: 1fr; gap: 32px; }
+  .sidebar { position: static; text-align: center; }
+  .avatar { margin: 0 auto 18px; }
+  .links, .interests { justify-content: center; }
+  .nav { display: none; }
+  .news-list li { grid-template-columns: 1fr; gap: 2px; }
+}

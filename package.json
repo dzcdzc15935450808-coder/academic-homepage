@@ -1,0 +1,9 @@
+{
+  "name": "academic-homepage",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Personal academic homepage template (static, no dependencies)",
+  "scripts": {
+    "dev": "node server.js --host 127.0.0.1 --port 7100"
+  }
+}
