@@ -1,4 +1,5 @@
-/* Minimal static server: `npm run dev` (optionally with --host / --port args). */
+/* Local preview server: `npm run dev` (optionally with --host / --port args).
+   Sends no-store so edited images and copy show up on a plain refresh. */
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
@@ -45,7 +46,10 @@ const server = http.createServer((req, res) => {
       res.end("404 Not Found");
       return;
     }
-    res.writeHead(200, { "Content-Type": MIME[path.extname(file)] || "application/octet-stream" });
+    res.writeHead(200, {
+      "Content-Type": MIME[path.extname(file)] || "application/octet-stream",
+      "Cache-Control": "no-store",
+    });
     res.end(data);
   });
 });
