@@ -278,6 +278,7 @@ body {
 @media (max-width: 880px) {
   .layout { grid-template-columns: 1fr; gap: 36px; padding-top: 32px; }
   .sidebar { position: static; max-width: 420px; margin: 0 auto; text-align: center; }
+  .film-still { margin-left: auto; margin-right: auto; }
   .film-still figcaption { justify-content: center; }
   .emails a { margin: 0 auto; }
   .links { justify-content: center; }
