@@ -49,12 +49,13 @@ const SITE = {
     en: "University of Barcelona · Department of Art History",
     es: "Universidad de Barcelona · Departamento de Historia del Arte",
   },
-  email: "your-email@example.com", // ← 换成你的真实邮箱
-  photo: "", // 可填图片路径，如 "photo.jpg"；留空则显示姓名首字母
+  email: "zhdongdo81@doct.ub.edu",
+  emails: ["zhdongdo81@doct.ub.edu", "zhecheng.dong@kinoscholar.com"],
+  photo: "photo.jpg",
   links: [
     { label: { zh: "知影学术 Kinoscholar", en: "Kinoscholar", es: "Kinoscholar" }, url: "https://kinoscholar.com" },
-    { label: { zh: "简历", en: "CV", es: "CV" }, url: "#" }, // ← 可上传 CV PDF 后改为文件路径
-    { label: { zh: "ORCID", en: "ORCID", es: "ORCID" }, url: "https://orcid.org/" }, // ← 有 ORCID 后补上
+    { label: { zh: "领英", en: "LinkedIn", es: "LinkedIn" }, url: "https://www.linkedin.com/in/zhecheng-dong-862390364" },
+    { label: { zh: "ORCID", en: "ORCID", es: "ORCID" }, url: "https://orcid.org/0009-0009-3887-580X" },
   ],
   interests: [
     { zh: "转型期电影",   en: "Transitional Cinema",      es: "Cine de transición" },
@@ -136,49 +137,8 @@ const NEWS = [
   },
 ];
 
-/* 在审论文 —— 标题保持英文；status 可翻译 */
-const PUBLICATIONS = [
-  {
-    year: 2026,
-    title: "Palimpsest Feminine Subjectivity and Visual Motifs: A Comparative Study of Gary Cooper, Who Art Thou in Heaven? and Summer Snow",
-    authors: ["Zhecheng Dong"],
-    venue: "Camera Obscura",
-    status: { zh: "审稿中", en: "under review", es: "en revisión" },
-    links: [],
-  },
-  {
-    year: 2026,
-    title: "Palimpsest Subjectivity: The Feminine Subject and Identity Rewriting in Pilar Miró's Gary Cooper, Who Art Thou in Heaven?",
-    authors: ["Zhecheng Dong"],
-    venue: "Feminist Art Practices and Research: Cosmos",
-    status: { zh: "审稿中", en: "under review", es: "en revisión" },
-    links: [],
-  },
-  {
-    year: 2026,
-    title: "From Slow Cinema to Watch-and-Discard Cinema: Platform Taskism and the Aesthetic Shift in Contemporary Chinese Cinema",
-    authors: ["Zhecheng Dong"],
-    venue: "Journal of Chinese Cinemas",
-    status: { zh: "审稿中", en: "under review", es: "en revisión" },
-    links: [],
-  },
-  {
-    year: 2026,
-    title: "Deprived Violence and Bare Life: A Comparative Reading of 'Homo Sacer' in the Video Game Mafia and the Film A Touch of Sin",
-    authors: ["Zhecheng Dong"],
-    venue: "Convergence",
-    status: { zh: "审稿中", en: "under review", es: "en revisión" },
-    links: [],
-  },
-  {
-    year: 2025,
-    title: "Infrastructure Sovereignty: Platform Capitalism, Algorithmic Governance, and the Politics of Visibility in China and the EU",
-    authors: ["Zhecheng Dong"],
-    venue: "",
-    status: { zh: "审稿中", en: "under review", es: "en revisión" },
-    links: [],
-  },
-];
+/* 在审论文 —— 用户要求先不列出；添加条目后此板块自动显示 */
+const PUBLICATIONS = [];
 
 /* 博士研究项目 */
 const RESEARCH_PROJECT = {
@@ -235,13 +195,13 @@ const AWARDS = [
 const TEACHING = []; // 暂无教学经历；添加条目后此板块自动显示
 
 const CONTACT = {
+  emailLabel: { zh: "邮箱", en: "Email", es: "Correo" },
   lines: [
     {
       zh: "巴塞罗那大学艺术史系",
       en: "Department of Art History, University of Barcelona",
       es: "Departamento de Historia del Arte, Universidad de Barcelona",
     },
-    { zh: "", en: "", es: "" }, // 占位：邮箱行由 app.js 按 SITE.email 生成
     {
       zh: "研究方向：转型期电影、电影现象学、平台研究。欢迎学术交流与合作。",
       en: "Research: transitional cinema, film phenomenology, platform studies. Open to academic exchange and collaboration.",

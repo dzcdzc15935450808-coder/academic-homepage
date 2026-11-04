@@ -1,0 +1,27 @@
+{
+  "world": "program-note",
+  "mode": "read",
+  "pinnedBy": "user brief: Anthropic-style warmth + cinematic detail",
+  "colorStrategy": "restrained",
+  "light": {
+    "paper": "#f6f1e8", "paperElev": "#fdfaf3", "ink": "#201c15",
+    "inkSoft": "#57503f", "inkFaint": "#8d8470", "line": "#ddd4c2",
+    "accent": "#b04a17", "accentSoft": "rgba(176,74,23,0.09)"
+  },
+  "dark": {
+    "paper": "#17140f", "paperElev": "#211d16", "ink": "#ede6d6",
+    "inkSoft": "#b3a891", "inkFaint": "#7e7460", "line": "#3a342a",
+    "accent": "#d97757", "accentSoft": "rgba(217,119,87,0.13)"
+  },
+  "fonts": {
+    "display": "Newsreader self-hosted (fonts/newsreader-*.woff2)",
+    "body": "system sans",
+    "mono": "system ui-monospace (metadata only)"
+  },
+  "signature": {
+    "motion": "portrait ken-burns hover drift 6s; staggered fade-up entrance; reduced-motion safe",
+    "components": ["portrait+caption", "lang pill switch", "news ledger", "pill links", "hairline rules"]
+  },
+  "i18n": ["zh", "en", "es"],
+  "review": ".impeccable/review/"
+}
