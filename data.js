@@ -120,8 +120,8 @@ const NEWS = [
   {
     date: "2025-09",
     text: {
-      zh: "入读庞培法布拉大学当代电影与视听研究文学硕士。",
-      en: "Began the M.A. in Contemporary Film and Audiovisual Studies at Pompeu Fabra University.",
+      zh: "入读庞培法布拉大学当代电影与视听研究硕士项目。",
+      en: "Began the master's programme in Contemporary Film and Audiovisual Studies at Pompeu Fabra University.",
       es: "Inicio del máster en Estudios de Cine y Medios Audiovisuales Contemporáneos en la UPF.",
     },
   },
