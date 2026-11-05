@@ -1,69 +1,44 @@
-# DESIGN — dongzhecheng.com
+# DESIGN — Academic Homepage
 
-World: **the printed annual**. A scholarly annual, not a portfolio: an ink cover, a fixed 34 %
-axis, sections as pages of a report, one red page in the middle, a colophon at the end. Warm but
-plain — the warmth comes from paper, ink and the size of the type, never from decoration.
+World: 「program note」— a repertory-cinema program note with Anthropic-grade editorial warmth. Brief-pinned by the user ("Anthropic 一点，电影一点"). Read mode; static site; i18n zh/en/es.
 
-Direction dealt by tasteskill v2 (`editorial-report`, seed 646778557), then settled against the
-house rules.
+## Color
 
-## The argument
+Light — the reading room, daylight through a high window:
+`--paper #f6f1e8` · `--paper-elev #fdfaf3` · `--ink #201c15` · `--ink-soft #57503f` · `--ink-faint #726957` · `--line #ddd4c2` · `--accent #b04a17` · `--accent-soft rgba(176,74,23,.09)`
 
-1. Cover — who he is, and the sentence the research exists to prove.
-2. About — the same claim at reading size, with the portrait as a drop cap.
-3. The dissertation — title, method, and the two fieldwork plates.
-4. The red page — Madrid 1975 / Beijing 1978, the comparison the thesis is built on.
-5. News — a dated record, pushed right.
-6. Work — Kinoscholar, shown as the product's own interface.
-7. Contact — one sentence, two addresses.
-8. Colophon — image credits, type, date.
+Dark — the screening room:
+`--paper #17140f` · `--paper-elev #211d16` · `--ink #ede6d6` · `--ink-soft #b3a891` · `--ink-faint #948a78` · `--line #3a342a` · `--accent #d97757` · `--accent-soft rgba(217,119,87,.13)`
 
-## Colour
-
-Three values only. No tints, no gradients, no borders.
-
-| Role | Light | Notes |
-|---|---|---|
-| Paper | `#e2dccf` | warm bone, not cream-yellow |
-| Ink | `#2a1110` | warm near-black; the cover and the colophon |
-| Red | `#952625` | one page of it (the comparison), one band at the close |
-
-Secondary text: `#5a3a35` (soft, 7.35:1), `#6b524c` (mute, 5.23:1). On ink: `#e7e1d4` (13.6:1)
-and `#c3b8a9` (9.1:1). On red: `#f1e9da` (6.7:1) and `#e4d3c2` (5.6:1).
+Color strategy: Restrained — warm neutrals tinted from paper + one clay accent that appears as text links, active language pill, hover states. Theme choice is scene-driven (reading room vs screening room), persisted in localStorage; `?theme=dark|light` deep-links.
 
 ## Type
 
-- **Latin — Schibsted Grotesk**, self-hosted variable woff2 (SIL OFL). Display 700, text 400/600.
-- **Chinese display — Songti SC** (system), so 董哲诚 and every 标题 sit like a Chinese book page.
-- **Chinese text — PingFang SC** (system) at 17–19 px.
-- Five steps: 107 / 45 / 34 / 19 / 14 px at 1440 (`clamp()` scales them).
-- Headline: two lines, tracking −0.045em, leading 0.95. Statements ≤ 36 px. Body 58 ch.
+- Display/serif: **Source Serif 4** (self-hosted woff2, 400–700 + italic) — headings, name, project titles, the dissertation title in italic, interest tags.
+- Body and UI: **Instrument Sans** (self-hosted woff2, 400–700), CJK to PingFang SC / Songti; 16px/1.7, measure capped 65–75ch.
+- Metadata runs in the text face: no third family. Photo caption, dates, affiliation, footer, language switcher and interest heading use Instrument Sans at 11–13px with 0.02–0.12em tracking.
 
 ## Layout
 
-One axis at **34 %** of the content width, used by every section: headings start on it, body hangs
-to its right, the left column holds two-line notes (place, funding, method). The axis collapses to
-the left margin under 900 px, and the notes move above their paragraph.
+Max width 1120px. Desktop: two-column editorial spread — 300px sticky sidebar + main column, gap 60px. Mobile ≤880px: single centered column, sidebar stacks (photo, name, links centered). One rule only: the hairline under each section title. No cards, no boxes, no dashed list separators — research, projects and news sit on the page like the rest of the prose, separated by space.
 
-Margins `clamp(20px, 5vw, 76px)`. Section padding `clamp(72px, 10vh, 124px)`. No section is a card
-grid; the red page is the only full-bleed colour field inside the body.
+## Signature components
 
-## Pictures
+- **Portrait**: CV-photo scale (160px, 3:4, 4px radius, no frame), mono caption: `NAME` / `ORCID` / iD, the iD linked. One authored motion: slow Ken-Burns drift on hover (6s, scale→1.045) — the page's only non-entrance motion.
+- **Entrance**: one staggered fade-up on load (7 steps, 0.7s, cubic-bezier(0.16,1,0.3,1)), disabled under `prefers-reduced-motion`.
+- **Language switch**: pill control, active language = solid ink chip. Language: `?lang=` > localStorage > browser (zh→zh, es→es, else en). Chinese UI shows 董哲诚 as primary name; others show Zhecheng Dong.
+- **News ledger**: one row per item, no rules between rows, mono tabular dates.
+- **Pills** (links/badges): 1px border, 999px radius, hover → accent.
+- Empty sections auto-hide (publications, teaching currently hidden).
 
-Four, all documentary: the portrait (drop cap), Madrid and Barcelona (fieldwork plates, colour,
-credited under the caption), and the Kinoscholar interface (the product's own screenshot, in
-colour — the one screen on a printed page). No stock skies, no decorative images.
+## Browser chrome ships themed
 
-## Motion
+Selection = accent on paper-elev; focus ring 2px accent; smooth scroll with 76px sticky-top offset.
 
-One move, used twice: a line-mask reveal on the cover headline, and an 18 px rise + fade for each
-block as it enters (`--i` staggers 55 ms). Every control has a hover/focus state. Under
-`prefers-reduced-motion` nothing moves and everything is visible.
+## Provenance
 
-## Known limits
-
-- The comparison page and the contact band are the only red surfaces; more would tip the page
-  from "annual" into "poster".
-- Figure captions carry the licence, so they are longer than a museum caption would be.
-- The page is JS-rendered (i18n lives in `data.js`); `<noscript>` carries a short static summary
-  for crawlers that do not execute scripts.
+- `fonts/source-serif-*.woff2` — Source Serif 4, latin + latin-ext, upright and italic, self-hosted, OFL.
+- `fonts/instrument-sans-*.woff2` — Instrument Sans, latin + latin-ext, self-hosted, OFL.
+- `fonts/newsreader-*.woff2` — previous display face, now unreferenced.
+- `photo.jpg` — user-supplied portrait.
+- Review captures: `.impeccable/review/*.png` (headless Chrome, 1440×2600 desktop / 390 mobile).

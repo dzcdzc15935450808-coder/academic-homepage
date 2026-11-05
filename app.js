@@ -1,222 +1,183 @@
 /* ============================================================
-   app.js · 渲染 + 三语切换 + 入场动效。
-   语言优先级：?lang= > localStorage > 浏览器语言。
-   切换语言不刷新页面，只重写文本。
+   app.js — i18n 渲染逻辑（zh / en / es）。
+   语言优先级：localStorage > 浏览器语言；中文界面主名显示「董哲诚」。
    ============================================================ */
 
 (function () {
   const $ = (id) => document.getElementById(id);
-  const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
-  const pick = (v) => {
-    if (v == null) return "";
-    if (typeof v === "string") return v;
-    return v[LANG] ?? v.en ?? v.zh ?? "";
-  };
 
-  const params = new URLSearchParams(location.search);
   const stored = localStorage.getItem("lang");
   const nav = (navigator.language || "en").toLowerCase();
-  const browser = nav.startsWith("zh") ? "zh" : nav.startsWith("es") ? "es" : "en";
-  const fromUrl = params.get("lang");
-  let LANG = ["zh", "en", "es"].includes(fromUrl) ? fromUrl
-    : ["zh", "en", "es"].includes(stored) ? stored
-    : browser;
+  const browserLang = nav.startsWith("zh") ? "zh" : nav.startsWith("es") ? "es" : "en";
+  const urlLang = new URLSearchParams(location.search).get("lang");
+  let LANG = ["zh", "en", "es"].includes(urlLang) ? urlLang
+    : ["zh", "en", "es"].includes(stored) ? stored : browserLang;
 
-  let io = null;
+  const pick = (obj) => {
+    if (obj == null) return "";
+    if (typeof obj === "object") return obj[LANG] ?? obj.en ?? obj.zh ?? "";
+    return obj;
+  };
 
-  /* ---------- chrome ---------- */
-  function renderChrome() {
-    $("skip-link").textContent = pick(UI.skip);
-    $("mark").textContent = LANG === "zh" ? SITE.nameZh : SITE.name;
+  /* localized primary/secondary names: 中文界面主名是中文名 */
+  const primaryName = LANG === "zh" && SITE.nameZh ? SITE.nameZh : SITE.name;
+  const altName = LANG === "zh" && SITE.nameZh ? SITE.name : SITE.nameZh;
 
-    $("nav").innerHTML = Object.keys(UI.nav)
-      .map((k) => `<a href="#${k}">${pick(UI.nav[k])}</a>`)
-      .join("");
-
-    $("lang").innerHTML = LANGS
-      .map((l) => `<button type="button" data-lang="${l.code}" aria-pressed="${l.code === LANG}">${l.label}</button>`)
-      .join("");
-  }
-
-  /* ---------- hero ---------- */
-  function renderHero() {
-    const lines = HERO.title[LANG] || HERO.title.zh;
-    $("hero-line-1").textContent = lines[0];
-    $("hero-line-2").textContent = lines[1];
-    $("hero-lede").textContent = pick(HERO.lede);
-
-    const action = $("hero-action");
-    action.textContent = `${pick(HERO.action)} ↗`;
-    action.href = `mailto:${SITE.email}?subject=${encodeURIComponent(LANG === "zh" ? "来自个人主页的来信" : "Hello from your homepage")}`;
-
-    $("hero-facts").innerHTML = HERO.facts
-      .map((f) => `<li class="fact"><span class="fact__v latin">${f.value}</span><span class="fact__k">${pick(f.label)}</span></li>`)
-      .join("");
-  }
-
-  /* ---------- about ---------- */
-  function renderAbout() {
-    const portrait = `<img class="dropcap" src="assets/portrait.webp" width="733" height="733" alt="${esc(pick(ABOUT.portraitAlt))}" decoding="async">`;
-    $("about-statement").innerHTML = portrait + pick(ABOUT.statement);
-    $("about-body").textContent = pick(ABOUT.body);
-    $("about-notes").innerHTML = ABOUT.notes.map((n) => `<p>${pick(n)}</p>`).join("");
-  }
-
-  /* ---------- research ---------- */
-  function renderResearch() {
-    $("research-heading").textContent = pick(RESEARCH.heading);
-    $("research-name").textContent = pick(RESEARCH.name);
-    $("research-method").textContent = pick(RESEARCH.method);
-    $("research-field").textContent = pick(RESEARCH.field);
-    $("research-notes").innerHTML = RESEARCH.notes.map((n) => `<p>${pick(n)}</p>`).join("");
-
-    $("diptych-head").textContent = pick(DIPTYCH.heading);
-    ["madrid", "beijing"].forEach((key) => {
-      const c = DIPTYCH[key];
-      $(`${key}-year`).textContent = c.year;
-      $(`${key}-city`).textContent = pick(c.city);
-      $(`${key}-text`).textContent = pick(c.text);
-      $(`${key}-films`).textContent = pick(c.directors);
-    });
-    $("diptych-question").textContent = pick(DIPTYCH.question);
-
-    $("plates").innerHTML = RESEARCH.plates.map((p) => `
-      <figure class="plate">
-        <img src="${p.img}" width="${p.w}" height="${p.h}" alt="${esc(pick(p.alt))}" loading="lazy" decoding="async">
-        <figcaption>
-          <span class="plate__cap">${pick(p.caption)}</span>
-          <span class="plate__credit">
-            <a href="${p.href}" target="_blank" rel="noopener">${p.credit}</a>, ${p.licence}
-          </span>
-        </figcaption>
-      </figure>`).join("");
-  }
-
-  /* ---------- news ---------- */
-  function renderNews() {
-    $("news-heading").textContent = pick(UI.nav.news);
-    $("news-list").innerHTML = NEWS.map((n) => `
-      <article class="news__item">
-        <p class="news__date latin">${n.date}</p>
-        <p class="news__text">${pick(n.text)}</p>
-      </article>`).join("");
-  }
-
-  /* ---------- work ---------- */
-  function renderWork() {
-    $("work-heading").textContent = pick(WORK.heading);
-    $("work-desc").textContent = pick(WORK.desc);
-    $("work-caption").textContent = pick(WORK.caption);
-
-    const link = $("work-link");
-    link.textContent = WORK.link;
-    link.href = WORK.url;
-
-    const img = $("work-img");
-    img.src = WORK.shot;
-    img.alt = pick(WORK.shotAlt);
-    img.width = WORK.shotW;
-    img.height = WORK.shotH;
-  }
-
-  /* ---------- contact ---------- */
-  function renderContact() {
-    $("contact-statement").textContent = pick(CONTACT.statement);
-    $("contact-meta").textContent = pick(CONTACT.meta);
-    $("contact-links").innerHTML =
-      SITE.emails.map((e) => `<a class="link link--big" href="mailto:${e}">${e}</a>`).join("") +
-      SITE.links.map((l) => `<a class="link" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join("");
-  }
-
-  /* ---------- colophon ---------- */
-  function renderColophon() {
-    $("colophon-credits").textContent = pick(COLOPHON.credits);
-    $("colophon-type").textContent = pick(COLOPHON.type);
-    $("colophon-updated").textContent = pick(COLOPHON.updated);
-  }
-
-  /* ---------- meta ---------- */
-  function renderMeta() {
+  function render() {
     document.documentElement.lang = LANG;
-    document.title = pick(UI.titles);
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute("content", pick(UI.descriptions));
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute("content", pick(UI.titles));
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute("content", pick(UI.descriptions));
-  }
+    document.title = `${primaryName} — ${pick(UI.section.about)}`;
 
-  function renderAll() {
-    renderMeta();
-    renderChrome();
-    renderHero();
-    renderAbout();
-    renderResearch();
-    renderNews();
-    renderWork();
-    renderContact();
-    renderColophon();
-    markRise();
-  }
+    $("brand-name").textContent = primaryName;
+    $("name").innerHTML = primaryName +
+      (altName ? `<span class="name-alt">${altName}</span>` : "");
 
-  /* ---------- entrance motion ---------- */
-  function markRise() {
-    if (!("IntersectionObserver" in window)) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    /* film still */
+    const img = $("photo");
+    img.src = SITE.photo || "";
+    img.onerror = () => { img.closest(".film-still").style.display = "none"; };
+    const orcid = (SITE.links || []).find(l => (l.url || "").includes("orcid.org"));
+    $("photo-caption").innerHTML =
+      `<span>${SITE.name.toUpperCase()}</span>` +
+      (orcid
+        ? `<a href="${orcid.url}" target="_blank" rel="noopener">ORCID <span class="cap-id">${orcid.url.split("/").pop()}</span></a>`
+        : "");
 
-    if (!io) {
-      io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("in");
-            io.unobserve(e.target);
-          }
-        });
-      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+    $("role").textContent = pick(SITE.role);
+    $("affiliation").textContent = pick(SITE.affiliation);
+
+    const emails = SITE.emails && SITE.emails.length ? SITE.emails : [SITE.email];
+    $("emails").innerHTML = emails
+      .map(e => `<a href="mailto:${e}">${e}</a>`).join("");
+
+    $("links").innerHTML = SITE.links
+      .map(l => `<a href="${l.url}" target="_blank" rel="noopener">${pick(l.label)}</a>`)
+      .join("");
+
+    $("interests").innerHTML = `<h3>${pick(UI.interestsHeading)}</h3>` +
+      SITE.interests.map(i => `<span class="tag">${pick(i)}</span>`).join("");
+
+    /* nav + section titles */
+    Object.keys(UI.nav).forEach(key => {
+      const navLink = document.querySelector(`.nav a[href="#${key}"]`);
+      if (navLink) navLink.textContent = pick(UI.nav[key]);
+      const titleEl = $(`title-${key}`);
+      if (titleEl) titleEl.textContent = pick(UI.section[key]);
+    });
+
+    $("bio").innerHTML = BIO.map(p => `<p>${pick(p)}</p>`).join("");
+
+    const researchBlock = $("research-block");
+    if (researchBlock && typeof RESEARCH_PROJECT !== "undefined" && RESEARCH_PROJECT.title) {
+      researchBlock.innerHTML = `
+        <h3>${pick(RESEARCH_PROJECT.title)}</h3>
+        <p>${pick(RESEARCH_PROJECT.desc)}</p>`;
     }
 
-    const selectors = [
-      ".about .statement", ".about .body", ".about .notes p",
-      ".research .h2", ".research__name", ".research .body",
-      ".diptych__head", ".city", ".diptych__q",
-      ".plates .plate", ".field-note",
-      ".news .h2", ".news__item",
-      ".work__shot", ".work__text > *",
-      ".contact .statement", ".contact__links", ".contact__meta",
-      ".colophon__grid > p",
-    ];
+    $("news-list").innerHTML = NEWS
+      .map(n => `<li><span class="news-date">${n.date}</span><span>${pick(n.text)}</span></li>`)
+      .join("");
 
-    const els = [];
-    selectors.forEach((s) => document.querySelectorAll(s).forEach((el) => els.push(el)));
-    els.forEach((el, i) => {
-      el.classList.add("rise");
-      el.style.setProperty("--i", String(i % 6));
-      io.observe(el);
+    /* publications */
+    const byYear = {};
+    [...PUBLICATIONS].sort((a, b) => b.year - a.year).forEach(p => {
+      (byYear[p.year] = byYear[p.year] || []).push(p);
     });
+    $("pub-note").textContent = PUBLICATIONS.length
+      ? pick(UI.pubNote).replace("{n}", PUBLICATIONS.length) : "";
+
+    $("pub-list").innerHTML = Object.keys(byYear).sort((a, b) => b - a).map(year => `
+      <div class="pub-year">${year}</div>
+      ${byYear[year].map(p => `
+        <div class="pub">
+          <div class="pub-title">${p.title}</div>
+          <div class="pub-authors">${p.authors.map(a =>
+            a === SITE.name ? `<span class="me">${a}</span>` : a).join(", ")}</div>
+          <div class="pub-venue">${[p.venue, pick(p.status)].filter(Boolean).join(" · ")}</div>
+          ${p.links && p.links.length ? `<div class="pub-badges">${p.links.map(l =>
+            `<a class="badge" href="${l.url}">${pick(l.label)}</a>`).join("")}</div>` : ""}
+        </div>`).join("")}
+    `).join("");
+
+    /* projects */
+    $("project-list").innerHTML = PROJECTS.map(p => `
+      <div class="proj">
+        <h3><a href="${(p.links[0] || {}).url || "#"}">${p.name}</a></h3>
+        <p>${pick(p.desc)}</p>
+        <div class="proj-links">${p.links.map(l =>
+          `<a class="badge" href="${l.url}">${pick(l.label)}</a>`).join("")}</div>
+      </div>`).join("");
+
+    $("award-list").innerHTML = AWARDS
+      .map(a => `<li><span class="when">${a.when}</span><span>${pick(a.text)}</span></li>`).join("");
+    $("teaching-list").innerHTML = TEACHING
+      .map(t => `<li><span class="when">${t.when}</span><span>${pick(t.text)}</span></li>`).join("");
+
+    /* contact: address, then one row per email, then the rest */
+    const label = pick(CONTACT.emailLabel);
+    $("contact-block").innerHTML =
+      CONTACT.lines.map(l => (pick(l) ? `<p>${pick(l)}</p>` : "")).join("") +
+      emails.map((e, i) => `<p>${i === 0 ? label + ": " : ""}<a href="mailto:${e}">${e}</a></p>`).join("") +
+      (CONTACT.site ? `<p><a href="${CONTACT.site}">${CONTACT.site.replace(/^https?:\/\//, "")}</a></p>` : "");
+
+    $("footer").textContent = pick(FOOTER);
+
+    /* hide empty sections */
+    const hideIfEmpty = (listId, sectionId) => {
+      const el = $(listId);
+      if (el && !el.children.length) {
+        const sec = document.getElementById(sectionId);
+        if (sec) sec.style.display = "none";
+        const navLink = document.querySelector(`.nav a[href="#${sectionId}"]`);
+        if (navLink) navLink.style.display = "none";
+      }
+    };
+    hideIfEmpty("news-list", "news");
+    hideIfEmpty("pub-list", "publications");
+    hideIfEmpty("project-list", "projects");
+    hideIfEmpty("award-list", "awards");
+    hideIfEmpty("teaching-list", "teaching");
+
+    document.querySelectorAll(".lang-switch button").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.lang === LANG);
+    });
+    $("lang-select").setAttribute("aria-label", pick(UI.langLabel));
   }
 
-  /* ---------- language ---------- */
-  $("lang").addEventListener("click", (e) => {
-    const btn = e.target.closest("button[data-lang]");
-    if (!btn || btn.dataset.lang === LANG) return;
+  /* language switcher */
+  const switcher = $("lang-switch");
+  switcher.innerHTML = LANGS.map(l => `<button data-lang="${l.code}">${l.label}</button>`).join("");
 
+  /* phones get a native dropdown instead of three pills */
+  const langSelect = $("lang-select");
+  langSelect.innerHTML = LANGS.map(l => `<option value="${l.code}">${l.label}</option>`).join("");
+  langSelect.value = LANG;
+  langSelect.addEventListener("change", () => {
+    localStorage.setItem("lang", langSelect.value);
+    location.reload();
+  });
+  switcher.addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
     LANG = btn.dataset.lang;
     localStorage.setItem("lang", LANG);
-
-    const url = new URL(location.href);
-    if (LANG === "zh") url.searchParams.delete("lang");
-    else url.searchParams.set("lang", LANG);
-    history.replaceState(null, "", url);
-
-    renderAll();
-    document.getElementById("top").scrollIntoView({ block: "start" });
+    /* re-derive names for the new language without a reload */
+    location.reload();
   });
 
-  /* ---------- boot ---------- */
-  renderAll();
-
-  requestAnimationFrame(() => {
-    document.documentElement.classList.add("is-ready");
+  /* theme toggle; ?theme=dark|light deep-links and persists */
+  const root = document.documentElement;
+  const urlTheme = new URLSearchParams(location.search).get("theme");
+  const savedTheme = ["dark", "light"].includes(urlTheme) ? urlTheme
+    : localStorage.getItem("theme");
+  if (savedTheme === "dark" || (!savedTheme && matchMedia("(prefers-color-scheme: dark)").matches)) {
+    root.setAttribute("data-theme", "dark");
+  }
+  $("theme-toggle").addEventListener("click", () => {
+    const dark = root.getAttribute("data-theme") === "dark";
+    if (dark) root.removeAttribute("data-theme");
+    else root.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", dark ? "light" : "dark");
   });
+
+  render();
 })();
