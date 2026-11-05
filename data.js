@@ -186,6 +186,14 @@ const AWARDS = [
       es: 'Premio Extraordinario a la mejor tesis, Universidad Pompeu Fabra, por <em>Deprived Violence and Bare Life: A Comparative Reading of "homo sacer" in Mafia and A Touch of Sin</em>',
     },
   },
+  {
+    when: "2023",
+    text: {
+      zh: "学生世界影响力电影节（SWIFF）最佳导演提名",
+      en: "Best Director nomination, Student World Impact Film Festival (SWIFF)",
+      es: "Nominación a Mejor Dirección, Student World Impact Film Festival (SWIFF)",
+    },
+  },
 ];
 
 const TEACHING = []; // 暂无教学经历；添加条目后此板块自动显示
