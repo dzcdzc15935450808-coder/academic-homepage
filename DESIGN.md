@@ -24,7 +24,8 @@ Max width 1120px. Desktop: two-column editorial spread — 300px sticky sidebar 
 
 ## Signature components
 
-- **Portrait**: CV-photo scale (160px, 3:4, 4px radius, no frame), mono caption: `NAME` / `ORCID` / iD, the iD linked. One authored motion: slow Ken-Burns drift on hover (6s, scale→1.045) — the page's only non-entrance motion.
+- **Portrait**: CV-photo scale (160px, 3:4, 4px radius, no frame), mono caption: `NAME` / `ORCID` / iD, the iD linked. Slow Ken-Burns drift on hover (6s, scale→1.045).
+- **City study**: 240px-wide abstract street plan below research interests, ink-faint street blocks and a terracotta viewfinder. It represents city/image/memory, not a geographical map. Lines draw once on first visibility (760–840ms); the viewfinder shifts 3px/−2px on hover or keyboard focus. A native, localized replay button supports touch and keyboard. Static, fully visible by default and with reduced motion; no loops, animation stops when offscreen or the tab is hidden. Short desktop windows let the taller sidebar scroll naturally.
 - **Entrance**: one staggered fade-up on load (7 steps, 0.7s, cubic-bezier(0.16,1,0.3,1)), disabled under `prefers-reduced-motion`.
 - **Language switch**: pill control, active language = solid ink chip. Language: `?lang=` > localStorage > browser (zh→zh, es→es, else en). Chinese UI shows 董哲诚 as primary name; others show Zhecheng Dong.
 - **News ledger**: one row per item, no rules between rows, mono tabular dates.

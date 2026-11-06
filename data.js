@@ -33,6 +33,10 @@ const UI = {
   },
   interestsHeading: { zh: "研究方向", en: "Research Interests", es: "Líneas de investigación" },
   langLabel: { zh: "语言", en: "Language", es: "Idioma" },
+  cityStudy: {
+    caption: { zh: "城市 · 影像 · 记忆", en: "City · image · memory", es: "Ciudad · imagen · memoria" },
+    replay: { zh: "重播城市街廓与取景框动效", en: "Replay the city and viewfinder animation", es: "Repetir la animación de la ciudad y el encuadre" },
+  },
   pubNote: { zh: "（共 {n} 篇，均在审稿中）", en: "({n} manuscripts · currently under review)", es: "({n} manuscritos · en revisión)" },
 };
 
