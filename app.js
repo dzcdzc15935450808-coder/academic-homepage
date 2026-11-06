@@ -54,9 +54,6 @@
     $("interests").innerHTML = `<h3>${pick(UI.interestsHeading)}</h3>` +
       SITE.interests.map(i => `<span class="tag">${pick(i)}</span>`).join("");
 
-    $("city-study-caption").textContent = pick(UI.cityStudy.caption);
-    $("city-study-replay").setAttribute("aria-label", pick(UI.cityStudy.replay));
-
     /* nav + section titles */
     Object.keys(UI.nav).forEach(key => {
       const navLink = document.querySelector(`.nav a[href="#${key}"]`);
@@ -182,37 +179,4 @@
 
   render();
 
-  /* The abstract plan draws once when seen; replay is a native button. */
-  const cityStudy = $("city-study");
-  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
-  function replayCityStudy() {
-    if (reducedMotion.matches || document.hidden) return;
-    cityStudy.classList.remove("is-drawing");
-    // Restart the short CSS sequence, including on repeated button presses.
-    void cityStudy.offsetWidth;
-    cityStudy.classList.add("is-drawing");
-  }
-  $("city-study-replay").addEventListener("click", replayCityStudy);
-  cityStudy.addEventListener("animationend", (event) => {
-    if (event.animationName === "city-compose") cityStudy.classList.remove("is-drawing");
-  });
-  const stopCityStudy = () => cityStudy.classList.remove("is-drawing");
-  reducedMotion.addEventListener("change", stopCityStudy);
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) stopCityStudy();
-  });
-  if ("IntersectionObserver" in window) {
-    let firstAppearance = true;
-    const observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        if (entry.intersectionRatio >= 0.5 && firstAppearance) {
-          firstAppearance = false;
-          replayCityStudy();
-        } else if (!entry.isIntersecting) {
-          stopCityStudy();
-        }
-      }
-    }, { threshold: 0.5 });
-    observer.observe(cityStudy);
-  }
 })();
