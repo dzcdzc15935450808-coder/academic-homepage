@@ -33,7 +33,7 @@ const UI = {
   },
   interestsHeading: { zh: "研究方向", en: "Research Interests", es: "Líneas de investigación" },
   langLabel: { zh: "语言", en: "Language", es: "Idioma" },
-  pubNote: { zh: "（共 {n} 篇）", en: "({n} publication)", es: "({n} publicación)" },
+  pubNote: { zh: "", en: "", es: "" },
 };
 
 const SITE = {
