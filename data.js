@@ -33,7 +33,7 @@ const UI = {
   },
   interestsHeading: { zh: "研究方向", en: "Research Interests", es: "Líneas de investigación" },
   langLabel: { zh: "语言", en: "Language", es: "Idioma" },
-  pubNote: { zh: "（共 {n} 篇，均在审稿中）", en: "({n} manuscripts · currently under review)", es: "({n} manuscritos · en revisión)" },
+  pubNote: { zh: "（共 {n} 篇）", en: "({n} publication)", es: "({n} publicación)" },
 };
 
 const SITE = {
@@ -94,6 +94,14 @@ const BIO = [
 
 const NEWS = [
   {
+    date: "2026-11",
+    text: {
+      zh: "论文《Palimpsestic Subjectivity: Feminist Rewriting and Layered Agency in Pilar Miró's Gary Cooper, Who Art in Heaven (1980)》被 Feminist Art Practices and Research: Cosmos（Taylor & Francis）接受，待刊。",
+      en: "Article “Palimpsestic Subjectivity: Feminist Rewriting and Layered Agency in Pilar Miró's Gary Cooper, Who Art in Heaven (1980)” accepted by Feminist Art Practices and Research: Cosmos (Taylor & Francis), forthcoming.",
+      es: "Artículo «Palimpsestic Subjectivity: Feminist Rewriting and Layered Agency in Pilar Miró's Gary Cooper, Who Art in Heaven (1980)» aceptado por Feminist Art Practices and Research: Cosmos (Taylor & Francis), de próxima publicación.",
+    },
+  },
+  {
     date: "2026-10",
     text: {
       zh: "知影课堂 KinoClass 进入公开测试，地址是 class.kinoscholar.com。",
@@ -127,8 +135,17 @@ const NEWS = [
   },
 ];
 
-/* 在审论文 —— 用户要求先不列出；添加条目后此板块自动显示 */
-const PUBLICATIONS = [];
+/* 已接受论文 1 篇；在审论文不列出 */
+const PUBLICATIONS = [
+  {
+    year: 2026,
+    title: "Palimpsestic Subjectivity: Feminist Rewriting and Layered Agency in Pilar Miró's Gary Cooper, Who Art in Heaven (1980)",
+    authors: ["Zhecheng Dong"],
+    venue: "Feminist Art Practices and Research: Cosmos, Taylor & Francis",
+    status: { zh: "已接受，待刊", en: "Accepted, forthcoming", es: "Aceptado, de próxima publicación" },
+    links: [{ label: { zh: "期刊", en: "Journal", es: "Revista" }, url: "https://www.tandfonline.com/journals/rfar20" }],
+  },
+];
 
 /* 博士研究项目 */
 const RESEARCH_PROJECT = {
