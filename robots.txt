@@ -1,2 +1,4 @@
+# Allow crawling so Google/Bing can fetch the page, see the noindex tag, and drop this site from results.
+# Do NOT set Disallow until de-indexed: Disallow blocks crawlers from seeing noindex, so the indexed URL would stay listed.
 User-agent: *
-Disallow: /
+Allow: /
