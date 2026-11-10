@@ -85,10 +85,10 @@ const BIO = [
   {
     zh: `此前在<a href="https://www.upf.edu" target="_blank">庞培法布拉大学</a>获得当代电影与视听研究硕士学位，本科毕业于山西传媒学院广告学专业。`,
     en: `He holds a master's degree in Contemporary Film and Audiovisual Studies from <a href="https://www.upf.edu" target="_blank">Pompeu Fabra University</a>
-        and a B.A. in Advertising from Shanxi Media College.`,
+        and a B.A. in Advertising from Communication University of Shanxi.`,
     es: `Tiene un máster en Estudios de Cine y Medios Audiovisuales Contemporáneos por la
         <a href="https://www.upf.edu" target="_blank">Universidad Pompeu Fabra</a> y una licenciatura en Publicidad
-        por la Shanxi Media College.`,
+        por la Universidad de Comunicación de Shanxi.`,
   },
 ];
 
