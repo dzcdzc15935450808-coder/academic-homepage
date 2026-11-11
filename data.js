@@ -226,18 +226,7 @@ const TEACHING = []; // 暂无教学经历；添加条目后此板块自动显�
 
 const CONTACT = {
   emailLabel: { zh: "邮箱", en: "Email", es: "Correo" },
-  lines: [
-    {
-      zh: "巴塞罗那大学艺术史系",
-      en: "Department of Art History, University of Barcelona",
-      es: "Departamento de Historia del Arte, Universidad de Barcelona",
-    },
-    {
-      zh: "研究方向：转型期电影、电影现象学、平台研究。欢迎来信。",
-      en: "Research: transitional cinema, film phenomenology, platform studies. Write if you work on any of this.",
-      es: "Líneas: cine de transición, fenomenología del cine, estudios de plataformas. Escríbeme si trabajas en algo de esto.",
-    },
-  ],
+  lines: [],
   site: "https://zhecheng.kinoscholar.com",
 };
 
