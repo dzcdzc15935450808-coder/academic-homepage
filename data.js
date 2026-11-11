@@ -184,6 +184,15 @@ const PROJECTS = [
     },
     links: [{ label: { zh: "官网", en: "Website", es: "Sitio web" }, url: "https://kinoscholar.com" }],
   },
+  {
+    name: "TIEMPHA",
+    desc: {
+      zh: "研究员。巴塞罗那大学研究团队，依托西班牙国家级科研项目 ITACA——《技术世的想象》（PID2023-151921NB-I00），以生态批评视角研究视觉文化与艺术。",
+      en: "Researcher. University of Barcelona research group, working under the Spanish national research project ITACA — Imaginarios del Tecnoceno (PID2023-151921NB-I00), studying visual culture and the arts from an ecocritical perspective.",
+      es: "Investigador. Grupo de investigación de la Universidad de Barcelona, en el marco del proyecto nacional ITACA — Imaginarios del Tecnoceno (PID2023-151921NB-I00), que estudia la cultura visual y las artes desde un enfoque ecocrítico.",
+    },
+    links: [{ label: { zh: "官网", en: "Website", es: "Sitio web" }, url: "https://tiempha.es/" }],
+  },
 ];
 
 const AWARDS = [
