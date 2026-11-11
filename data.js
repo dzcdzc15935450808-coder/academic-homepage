@@ -54,7 +54,6 @@ const SITE = {
   emails: ["zhdongdo81@doct.ub.edu", "zhecheng.dong@kinoscholar.com"],
   photo: "photo.jpg",
   links: [
-    { label: { zh: "知影学术 Kinoscholar", en: "Kinoscholar", es: "Kinoscholar" }, url: "https://kinoscholar.com" },
     { label: { zh: "领英", en: "LinkedIn", es: "LinkedIn" }, url: "https://www.linkedin.com/in/zhecheng-dong-862390364" },
     { label: { zh: "谷歌学术", en: "Google Scholar", es: "Google Scholar" }, url: "https://scholar.google.com/citations?hl=es&user=vmRK7i4AAAAJ&view_op=list_works" },
     { label: { zh: "ORCID", en: "ORCID", es: "ORCID" }, url: "https://orcid.org/0009-0009-3887-580X" },
