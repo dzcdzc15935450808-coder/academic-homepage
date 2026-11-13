@@ -143,7 +143,10 @@ const PUBLICATIONS = [
     authors: ["Zhecheng Dong"],
     venue: "Feminist Art Practices and Research: Cosmos, Taylor & Francis",
     status: { zh: "已接受，待刊", en: "Accepted, forthcoming", es: "Aceptado, de próxima publicación" },
-    links: [{ label: { zh: "期刊", en: "Journal", es: "Revista" }, url: "https://www.tandfonline.com/journals/rfar20" }],
+    links: [
+      { label: { zh: "期刊", en: "Journal", es: "Revista" }, url: "https://www.tandfonline.com/journals/rfar20" },
+      { label: { zh: "DOI", en: "DOI", es: "DOI" }, url: "https://doi.org/10.1080/29986982.2026.2764650" },
+    ],
   },
 ];
 
