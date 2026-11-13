@@ -210,9 +210,9 @@ const AWARDS = [
   {
     when: "2025",
     text: {
-      zh: '庞培法布拉大学校级优秀论文，论文《Deprived Violence and Bare Life: A Comparative Reading of "homo sacer" in Mafia and A Touch of Sin》',
-      en: 'Extraordinary Prize for the best thesis, Pompeu Fabra University, for <em>Deprived Violence and Bare Life: A Comparative Reading of "homo sacer" in Mafia and A Touch of Sin</em>',
-      es: 'Premio Extraordinario a la mejor tesis, Universidad Pompeu Fabra, por <em>Deprived Violence and Bare Life: A Comparative Reading of "homo sacer" in Mafia and A Touch of Sin</em>',
+      zh: '庞培法布拉大学校级优秀论文，论文《Deprived Violence and Bare Life: A Comparative Reading of "homo sacer" in Mafia and A Touch of Sin》（<a href="https://hdl.handle.net/10230/303257" target="_blank">UPF 论文库</a>）',
+      en: 'Extraordinary Prize for the best thesis, Pompeu Fabra University, for <em>Deprived Violence and Bare Life: A Comparative Reading of "homo sacer" in Mafia and A Touch of Sin</em> (<a href="https://hdl.handle.net/10230/303257" target="_blank">UPF repository</a>)',
+      es: 'Premio Extraordinario a la mejor tesis, Universidad Pompeu Fabra, por <em>Deprived Violence and Bare Life: A Comparative Reading of "homo sacer" in Mafia and A Touch of Sin</em> (<a href="https://hdl.handle.net/10230/303257" target="_blank">Repositorio UPF</a>)',
     },
   },
   {
