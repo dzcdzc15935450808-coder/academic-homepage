@@ -20,7 +20,7 @@ Color strategy: Restrained — warm neutrals tinted from paper + one clay accent
 
 ## Layout
 
-Max width 1120px. Desktop: two-column editorial spread — 300px sticky sidebar + main column, gap 60px. Mobile ≤880px: single centered column, sidebar stacks (photo, name, links centered). One rule only: the hairline under each section title. No cards, no boxes, no dashed list separators — research, projects and news sit on the page like the rest of the prose, separated by space.
+Max width 1120px. Desktop: two-column editorial spread — 300px sticky sidebar + main column, gap 60px. The rail stays pinned for the whole read; on windows under ~800px tall it scrolls inside itself so the portrait never leaves the frame. Mobile ≤880px: single centered column, sidebar stacks (photo, name, links centered). No rules: no section-title hairlines, no cards, no boxes, no dashed list separators — research, projects and news sit on the page like the rest of the prose, separated by space.
 
 ## Signature components
 
@@ -34,7 +34,7 @@ Max width 1120px. Desktop: two-column editorial spread — 300px sticky sidebar 
 
 ## Browser chrome ships themed
 
-Selection = accent on paper-elev; focus ring 2px accent; smooth scroll with 76px sticky-top offset.
+Selection = accent on paper-elev; focus ring 2px accent; smooth scroll with 76px sticky-top offset. On desktop the top bar's solid hairline is gone, replaced by a gradient rule that dissolves into the paper at both ends; phones keep the plain hairline.
 
 ## Provenance
 
